@@ -1,6 +1,6 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
-// Bank Account Class
 class BankAccount {
     accountNumber;
     balance;
@@ -8,7 +8,6 @@ class BankAccount {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
-    // Debit Money
     withdraw(amount) {
         if (amount > 0) {
             if (this.balance >= amount) {
@@ -23,11 +22,10 @@ class BankAccount {
             console.log(chalk.red("\nAmount must be positive.\n"));
         }
     }
-    // Credit Money
     deposit(amount) {
         if (amount > 0) {
             if (amount > 100) {
-                amount -= 1; // Transaction fee
+                amount -= 1;
             }
             this.balance += amount;
             console.log(chalk.green(`\nDeposit of $${amount} successful. Your remaining balance is $${this.balance}.\n`));
@@ -36,12 +34,10 @@ class BankAccount {
             console.log(chalk.red("\nAmount must be positive.\n"));
         }
     }
-    // Balance Inquiry
     balanceInquiry() {
         console.log(chalk.blue(`\nYour balance is $${this.balance}.\n`));
     }
 }
-// Customer Class
 class Customer {
     firstName;
     lastName;
@@ -58,19 +54,16 @@ class Customer {
         this.account = account;
     }
 }
-// Create Bank Accounts
 const accounts = [
     new BankAccount(1001, 1000),
     new BankAccount(1002, 2000),
     new BankAccount(1003, 3000),
 ];
-// Create Customers
 const customers = [
     new Customer("Akbar", "Ali", "Male", 30, 1234567890, accounts[0]),
     new Customer("Azlan", "Khan", "Male", 18, 2345678901, accounts[1]),
     new Customer("Rohan", "Khan", "Male", 20, 3456789012, accounts[2]),
 ];
-// Function to interact with bank account
 async function service() {
     console.log(chalk.yellow("\nWelcome to MyBank! Please follow the instructions to manage your account.\n"));
     while (true) {
