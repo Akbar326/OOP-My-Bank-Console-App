@@ -1,6 +1,6 @@
 {
   "name": "ali11-oop-my-bank-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MyBank Console App (Object Oriented Programming in TypeScript )",
   "main": "index.js",
   "type": "module",
